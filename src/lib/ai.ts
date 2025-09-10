@@ -46,6 +46,7 @@ export async function generateExpenseInsights(
       date: expense.date,
     }));
 
+
     const prompt = `Analyze the following expense data and provide 3-4 actionable financial insights. 
     Return a JSON array of insights with this structure:
     {
