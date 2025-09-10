@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Record } from '@/types/Record';
 import deleteRecord from '@/app/actions/deleteRecord';
+import { format } from "date-fns";
 
 // Helper function to get category emoji
 const getCategoryEmoji = (category: string) => {
@@ -80,7 +81,7 @@ const RecordItem = ({ record }: { record: Record }) => {
         <div className='space-y-2 sm:space-y-3'>
           <div className='flex items-center justify-between'>
             <span className='text-xs font-medium text-gray-500 dark:text-gray-400 tracking-wide uppercase'>
-              {new Date(record?.date).toLocaleDateString()}
+               {record?.date ? format(new Date(record.date), "yyyy-MM-dd") : ""}
             </span>
             <span className='text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100'>
               ${record?.amount.toFixed(2)}
